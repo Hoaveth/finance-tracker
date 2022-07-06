@@ -30,7 +30,7 @@ export const useCollection = (collection, _query, _orderBy) => {
         setError(null);
       },
       (error) => {
-        setError(error);
+        setError("Could not fetch data.");
       }
     );
     return () => unsubscribe();
