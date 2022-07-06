@@ -34,7 +34,7 @@ export const useLogin = () => {
       }
     } catch (err) {
       if (!isCancelled) {
-        setError(err);
+        setError("Problem with logging in.");
         setIsPending(false);
       }
     }

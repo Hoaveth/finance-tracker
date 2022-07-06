@@ -16,13 +16,10 @@ export default function TransactionForm({ uid }) {
   // reset the form fields
   useEffect(() => {
     if (response.success) {
-      toast.success("Transaction added successfully.");
       setName("");
       setAmount("");
-    } else {
-      toast.error(response.error);
     }
-  }, [response.success]);
+  }, [response]);
 
   return (
     <>
@@ -38,7 +35,7 @@ export default function TransactionForm({ uid }) {
           />
         </label>
         <label>
-          <span>Amount:</span>
+          <span>Amount (₱):</span>
           <input
             type="number"
             required
@@ -46,13 +43,8 @@ export default function TransactionForm({ uid }) {
             value={amount}
           />
         </label>
-        <button className="">Add Transaction</button>
+        <button>Add Transaction</button>
       </form>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        closeButton={false}
-      />
     </>
   );
 }

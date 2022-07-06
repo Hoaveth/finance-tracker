@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const { authIsReady, user } = useAuthContext();
@@ -28,6 +29,11 @@ function App() {
           </Switch>
         </BrowserRouter>
       )}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        closeButton={false}
+      />
     </div>
   );
 }

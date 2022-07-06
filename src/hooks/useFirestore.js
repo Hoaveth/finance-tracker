@@ -2,9 +2,11 @@ import { useReducer, useState, useEffect } from "react";
 import { projectFirestore, timestamp } from "../config/firebaseConfig";
 import {
   ADDED_DOCUMENT,
+  DELETED_DOCUMENT,
   FIRESTORE_ERROR,
   IS_PENDING,
 } from "../utils/constants";
+import { toast } from "react-toastify";
 
 let initialState = {
   document: null,
@@ -30,6 +32,13 @@ const firestoreReducer = (state, action) => {
         isPending: false,
         error: null,
         document: action.payload,
+      };
+    case DELETED_DOCUMENT:
+      return {
+        success: true,
+        isPending: false,
+        error: null,
+        document: null,
       };
     default:
       return state;
@@ -61,13 +70,29 @@ export const useFirestore = (collection) => {
         type: ADDED_DOCUMENT,
         payload: addedDocument,
       });
+      toast.success("Transaction added successfully.");
     } catch (err) {
       dispatchIfNotCancelled({ type: FIRESTORE_ERROR, payload: err.message });
+      toast.error("Transaction failed.");
     }
   };
 
   // delete a document
-  const deleteDocument = async (doc) => {};
+  const deleteDocument = async (id) => {
+    dispatch({ type: IS_PENDING });
+
+    try {
+      const deletedDocument = await ref.doc(id).delete();
+      dispatchIfNotCancelled({
+        type: DELETED_DOCUMENT,
+        payload: deletedDocument,
+      });
+      toast.success("Document deleted successfully.");
+    } catch (err) {
+      dispatchIfNotCancelled({ type: FIRESTORE_ERROR, payload: err.message });
+      toast.error("Transaction failed.");
+    }
+  };
 
   useEffect(() => {
     return () => setIsCancelled(true);

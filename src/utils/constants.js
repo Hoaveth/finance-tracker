@@ -7,6 +7,7 @@ export const AUTH_IS_READY = "AUTH_IS_READY";
 export const ADD_TRANSACTION = "ADD_TRANSACTION";
 export const IS_PENDING = "IS_PENDING";
 export const ADDED_DOCUMENT = "ADDED_DOCUMENT";
+export const DELETED_DOCUMENT = "DELETED_DOCUMENT";
 export const FIRESTORE_ERROR = "FIRESTORE_ERROR";
 
 //collections
