@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
 import { useFirestore } from "../../hooks/useFirestore";
 import { TRANSACTIONS_COLLECTION } from "../../utils/constants";
 

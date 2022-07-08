@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { projectAuth } from "../config/firebaseConfig";
-import { LOGIN_ACTION } from "../utils/constants";
-import { useAuthContext } from "./useAuthContext";
+import { user_login } from "../features/user";
+import { useDispatch } from "react-redux";
 
 export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const [isCancelled, setIsCancelled] = useState(false);
-  const { dispatch } = useAuthContext();
+  const dispatch = useDispatch();
 
   const login = async (email, password) => {
     setError(null);
@@ -22,7 +22,7 @@ export const useLogin = () => {
 
       //dispatch the login action
       if (response.user) {
-        dispatch({ type: LOGIN_ACTION, payload: response.user });
+        dispatch(user_login(response.user));
       } else {
         throw Error("There is a problem in signing in.");
       }

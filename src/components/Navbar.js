@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
-import { useAuthContext } from "../hooks/useAuthContext";
+import { useSelector } from "react-redux";
 
 import styles from "./styles/Navbar.module.css";
 
@@ -9,7 +9,7 @@ function Navbar() {
   const { logout } = useLogout();
 
   //use the useAuthContext to access the global state
-  const { user } = useAuthContext();
+  const user = useSelector((state) => state.user.userData);
 
   return (
     <nav className={styles.navbar}>

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { projectAuth } from "../config/firebaseConfig";
-import { LOGIN_ACTION } from "../utils/constants";
-import { useAuthContext } from "./useAuthContext";
+import { useDispatch } from "react-redux";
+import { user_login } from "../features/user";
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
-  const { dispatch } = useAuthContext();
+  const dispatch = useDispatch();
 
   const signup = async (email, password, displayName) => {
     setError(null);
@@ -27,7 +27,7 @@ export const useSignup = () => {
       await response.user.updateProfile({ displayName });
 
       //dispatch login action
-      dispatch({ type: LOGIN_ACTION, payload: response.user });
+      dispatch(user_login(response.user));
 
       setError(null);
       setIsPending(false);
