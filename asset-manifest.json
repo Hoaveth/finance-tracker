@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/finance-tracker/static/css/main.3f889019.chunk.css",
+    "main.js": "/finance-tracker/static/js/main.cfab1554.chunk.js",
+    "main.js.map": "/finance-tracker/static/js/main.cfab1554.chunk.js.map",
+    "runtime-main.js": "/finance-tracker/static/js/runtime-main.7c9fce0e.js",
+    "runtime-main.js.map": "/finance-tracker/static/js/runtime-main.7c9fce0e.js.map",
+    "static/css/2.2c4e78b8.chunk.css": "/finance-tracker/static/css/2.2c4e78b8.chunk.css",
+    "static/js/2.223aaa4e.chunk.js": "/finance-tracker/static/js/2.223aaa4e.chunk.js",
+    "static/js/2.223aaa4e.chunk.js.map": "/finance-tracker/static/js/2.223aaa4e.chunk.js.map",
+    "index.html": "/finance-tracker/index.html",
+    "static/css/2.2c4e78b8.chunk.css.map": "/finance-tracker/static/css/2.2c4e78b8.chunk.css.map",
+    "static/css/main.3f889019.chunk.css.map": "/finance-tracker/static/css/main.3f889019.chunk.css.map",
+    "static/js/2.223aaa4e.chunk.js.LICENSE.txt": "/finance-tracker/static/js/2.223aaa4e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7c9fce0e.js",
+    "static/css/2.2c4e78b8.chunk.css",
+    "static/js/2.223aaa4e.chunk.js",
+    "static/css/main.3f889019.chunk.css",
+    "static/js/main.cfab1554.chunk.js"
+  ]
+}
